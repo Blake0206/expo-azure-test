@@ -2,6 +2,49 @@
 
 Using Expo, Azure Functions, and Azure Table Storage
 
+## To clone this repository
+
+`git clone https://github.com/Blake0206/expo-azure-test.git`
+
+## To run the Application
+
+_**Note:** If you just cloned the repository, you will need to create a file named `local.settings.json` inside the `backend` folder. View step 5 of **'To recreate this project from scratch'** for the contents of this file._
+
+### 1. Open a new terminal (1) and move to the `backend` folder
+
+`cd backend`
+
+### 2. Launch Azurite
+
+`azurite --silent --location .\azurite --debug .\azurite\debug.log`
+
+_**Note:** If you don't have Azurite installed, run the following command first:_ `npm install -g azurite`
+
+### 3. Open another new terminal (2) and move to the `backend` folder
+
+`cd backend`
+
+### 4. Start the functions
+
+`func start`
+
+### 5. Open another new terminal (3) and move to the `my-app` folder
+
+`cd frontend/my-app`
+
+### 6. Run the expo application using one of the following commands
+
+* `npm run web`
+* `npm run ios`
+* `npm run android`
+
+_**Note:** If you get the error `expo: command not found`, run the following command first: `npm install`. This is required upon the first run._
+
+---
+
+_The application will be available at [http://localhost:8081](http://localhost:8081)_ \
+_To view the table storage, download **Microsoft Azure Storage Explorer**_
+
 ## To recreate this project from scratch
 
 ### 1. Create a frontend and a backend folder
@@ -48,38 +91,3 @@ Choose HTTP trigger for the function template and keep the default name. Keep th
 ### 9. Add the `.azurite` folder to the `backend/.gitignore`
 
 `.azurite/`
-
-## To run the Application
-
-### 1. Open a new terminal (1) and move to the `backend` folder
-
-`cd backend`
-
-### 2. Launch Azurite
-
-`azurite --silent --location .\azurite --debug .\azurite\debug.log`
-
-_**Note:** If you don't have Azurite installed, run the following command first:_ `npm install -g azurite`
-
-### 3. Open another new terminal (2) and move to the `backend` folder
-
-`cd backend`
-
-### 4. Start the functions
-
-`func start`
-
-### 5. Open another new terminal (3) and move to the `my-app` folder
-
-`cd frontend/my-app`
-
-### 6. Run the expo application using one of the following commands
-
-* `npm run web`
-* `npm run ios`
-* `npm run android`
-
----
-
-_The application will be available at [http://localhost:8081](http://localhost:8081)_ \
-_To view the table storage, download **Microsoft Azure Storage Explorer**_
