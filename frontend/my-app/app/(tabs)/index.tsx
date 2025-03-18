@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, TextInput, Button } from 'react-native';
+import { StyleSheet, TextInput, Button, Platform } from 'react-native';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
@@ -7,9 +7,11 @@ export default function TabOneScreen() {
 	const [name, setName] = useState('');
 	const [response, setResponse] = useState('');
 
+	const baseUrl = Platform.OS === 'android' ? 'http://10.0.2.2:7071' : 'http://localhost:7071';
+
 	const handleFetch = async () => {
 		try {
-			const res = await fetch(`http://localhost:7071/api/HttpTrigger1?name=${encodeURIComponent(name)}`);
+			const res = await fetch(`${baseUrl}/api/HttpTrigger1?name=${encodeURIComponent(name)}`);
 			const text = await res.text();
 			setResponse(text);
 		} catch (error) {
